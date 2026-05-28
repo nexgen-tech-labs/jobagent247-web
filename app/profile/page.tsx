@@ -5,14 +5,17 @@ import { DashboardLayout } from '@/components/layout/DashboardLayout'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { GradientButton } from '@/components/ui/GradientButton'
 import { Progress } from '@/components/ui/progress'
+import { CVUpload } from '@/components/profile/CVUpload'
 import { mockUserProfile } from '@/lib/mock-data'
-import { Upload, FileText, Check, X, Plus, Zap } from 'lucide-react'
+import { Check, X, Plus, Zap } from 'lucide-react'
+import type { CV } from '@/lib/types/database'
 
 export default function ProfilePage() {
   const profile = mockUserProfile
   const [skills, setSkills] = useState(profile.skills)
   const [targetRoles, setTargetRoles] = useState(profile.targetRoles)
   const [visaRequired, setVisaRequired] = useState(profile.visaRequired)
+  const [uploadedCVs, setUploadedCVs] = useState<CV[]>([])
 
   return (
     <DashboardLayout title="My Profile">
@@ -99,22 +102,11 @@ export default function ProfilePage() {
         {/* CV Upload */}
         <GlassCard className="p-6">
           <h3 className="font-heading font-semibold text-white mb-4">CV Upload</h3>
-          <div className="rounded-xl p-8 text-center mb-4" style={{ border: '2px dashed rgba(139,92,246,0.3)', background: 'rgba(139,92,246,0.04)' }}>
-            <Upload className="w-8 h-8 mx-auto mb-3" style={{ color: '#8B5CF6' }} />
-            <p className="text-sm font-medium text-white mb-1">Drop your CV here or click to upload</p>
-            <p className="text-xs" style={{ color: '#64748B' }}>Supports DOCX and PDF · Max 10MB</p>
-          </div>
-          {/* Existing CV */}
-          <div className="flex items-center gap-3 p-4 rounded-xl" style={{ background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)' }}>
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(34,197,94,0.12)' }}>
-              <FileText className="w-5 h-5" style={{ color: '#22C55E' }} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white">HitendraKotamraju_CV.docx</p>
-              <p className="text-xs" style={{ color: '#64748B' }}>Uploaded · ATS Score: 91%</p>
-            </div>
-            <Check className="w-5 h-5" style={{ color: '#22C55E' }} />
-          </div>
+          <CVUpload
+            userId="demo-user"
+            existingCVs={uploadedCVs}
+            onUploadComplete={(cv) => setUploadedCVs((prev) => [...prev, cv])}
+          />
         </GlassCard>
 
         {/* Visa toggle */}
