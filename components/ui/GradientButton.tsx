@@ -8,6 +8,7 @@ interface GradientButtonProps {
   className?: string
   size?: 'sm' | 'md' | 'lg'
   type?: 'button' | 'submit'
+  disabled?: boolean
 }
 
 const sizeClasses = {
@@ -16,8 +17,8 @@ const sizeClasses = {
   lg: 'px-8 py-4 text-lg',
 }
 
-export function GradientButton({ children, onClick, href, className, size = 'md', type = 'button' }: GradientButtonProps) {
-  const classes = cn('btn-gradient', sizeClasses[size], className)
+export function GradientButton({ children, onClick, href, className, size = 'md', type = 'button', disabled }: GradientButtonProps) {
+  const classes = cn('btn-gradient', sizeClasses[size], disabled && 'opacity-60 cursor-not-allowed', className)
 
   if (href) {
     return (
@@ -28,7 +29,7 @@ export function GradientButton({ children, onClick, href, className, size = 'md'
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   )

@@ -31,25 +31,40 @@ export async function proxy(request: NextRequest) {
     }
   )
 
-  // Refresh session — must be called before any route protection check
+  // Refresh session on every request
   const { data: { user } } = await supabase.auth.getUser()
 
-  const isProtected = protectedRoutes.some((route) =>
-    request.nextUrl.pathname.startsWith(route)
-  )
+  const path = request.nextUrl.pathname
+  const isProtected = protectedRoutes.some(r => path.startsWith(r))
 
+  // Unauthenticated → /login
   if (isProtected && !user) {
-    const loginUrl = request.nextUrl.clone()
-    loginUrl.pathname = '/login'
-    loginUrl.searchParams.set('redirectTo', request.nextUrl.pathname)
-    return NextResponse.redirect(loginUrl)
+    const url = request.nextUrl.clone()
+    url.pathname = '/login'
+    url.searchParams.set('redirectTo', path)
+    return NextResponse.redirect(url)
   }
 
-  // Redirect authenticated users away from auth pages
-  if (user && (request.nextUrl.pathname === '/login' || request.nextUrl.pathname === '/signup')) {
-    const dashboardUrl = request.nextUrl.clone()
-    dashboardUrl.pathname = '/dashboard'
-    return NextResponse.redirect(dashboardUrl)
+  // Authenticated on auth pages → /dashboard
+  if (user && (path === '/login' || path === '/signup')) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/dashboard'
+    return NextResponse.redirect(url)
+  }
+
+  // Authenticated but onboarding not complete → /onboarding
+  if (user && isProtected && path !== '/onboarding') {
+    const { data: profile } = await supabase
+      .from('users')
+      .select('onboarding_complete')
+      .eq('id', user.id)
+      .single()
+
+    if (profile && !profile.onboarding_complete) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/onboarding'
+      return NextResponse.redirect(url)
+    }
   }
 
   return response

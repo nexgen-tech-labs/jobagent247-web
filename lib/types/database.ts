@@ -8,8 +8,14 @@ export interface User {
   name: string | null
   email: string | null
   location: string | null
+  current_role: string | null
   target_roles: string[] | null
   visa_required: boolean
+  job_type_pref: string | null
+  location_pref: string | null
+  priority: string | null
+  keywords: string[] | null
+  onboarding_complete: boolean
   created_at: string
 }
 
