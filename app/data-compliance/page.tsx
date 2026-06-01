@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from 'next'
 import { LegalLayout } from '@/components/layout/LegalLayout'
 
 export const metadata: Metadata = {
-  title: 'Data Protection and Compliance — JobAgent007',
+  title: 'Data Protection and Compliance — JobAgent247',
   description: 'Data protection and compliance information for users in the UK, EU/EEA, United States, and India.',
 }
 
@@ -13,7 +14,7 @@ export default function DataCompliancePage() {
     <LegalLayout title="Data Protection and Compliance Notice" lastUpdated={LAST_UPDATED}>
 
       <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
-        This notice explains how JobAgent007, operated by Nexgen Tech Labs (United Kingdom), approaches data protection obligations across the jurisdictions in which our users may be located. Compliance obligations vary based on user location, business thresholds, data flows, vendor relationships, and legal interpretation. <strong>This notice does not constitute legal advice and should be reviewed by qualified legal counsel before production launch or commercial operation.</strong>
+        This notice explains how JobAgent247, operated by Nexgen Tech Labs (United Kingdom), approaches data protection obligations across the jurisdictions in which our users may be located. Compliance obligations vary based on user location, business thresholds, data flows, vendor relationships, and legal interpretation. <strong>This notice does not constitute legal advice and should be reviewed by qualified legal counsel before production launch or commercial operation.</strong>
       </p>
 
       <Section title="United Kingdom">
@@ -57,7 +58,7 @@ export default function DataCompliancePage() {
           <p>Career and employment-related data may be treated as sensitive under some state laws. We handle such data with appropriate care and limit its use to service delivery.</p>
         </SubSection>
         <SubSection title="Employment Law Disclaimer">
-          <p>JobAgent007 is a software tool and is not an employer, recruiter, or hiring decision-maker. No US employment law obligations (such as EEO, ADA, or FLSA obligations) apply to Nexgen Tech Labs in respect of the users' job-search activities.</p>
+          <p>JobAgent247 is a software tool and is not an employer, recruiter, or hiring decision-maker. No US employment law obligations (such as EEO, ADA, or FLSA obligations) apply to Nexgen Tech Labs in respect of the users' job-search activities.</p>
         </SubSection>
         <SubSection title="Legal Review Recommended">
           <p>US privacy law is rapidly evolving. We recommend periodic legal review to assess compliance obligations as state laws develop.</p>
@@ -73,7 +74,7 @@ export default function DataCompliancePage() {
           <p>Where we rely on consent as a lawful basis under Indian law, we will ensure consent is freely given, specific, informed, and unambiguous. Users may withdraw consent at any time by contacting us.</p>
         </SubSection>
         <SubSection title="Grievance Officer">
-          <p>For data-related complaints or requests from Indian users, please contact us at <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a>. We will endeavour to respond within a reasonable timeframe in accordance with applicable requirements.</p>
+          <p>For data-related complaints or requests from Indian users, please contact us at <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a>. We will endeavour to respond within a reasonable timeframe in accordance with applicable requirements.</p>
         </SubSection>
         <SubSection title="Legal Review Recommended">
           <p>The DPDPA and its implementing rules continue to develop. We recommend legal review to assess ongoing compliance obligations.</p>
@@ -91,7 +92,7 @@ export default function DataCompliancePage() {
           <p>In the event of a personal data breach that is likely to result in risk to affected individuals, we will take appropriate steps including notifying relevant supervisory authorities and affected users as required by applicable law.</p>
         </SubSection>
         <SubSection title="Security Disclosure">
-          <p>If you discover a security vulnerability, please report it responsibly to <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a>.</p>
+          <p>If you discover a security vulnerability, please report it responsibly to <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a>.</p>
         </SubSection>
       </Section>
 
@@ -100,7 +101,7 @@ export default function DataCompliancePage() {
         <div className="p-4 rounded-xl text-sm" style={{ background: 'rgba(139,92,246,0.08)', border: '1px solid rgba(139,92,246,0.2)' }}>
           <p className="font-semibold text-[color:var(--foreground)]">Nexgen Tech Labs</p>
           <p>Registered and operated in the United Kingdom</p>
-          <p>Email: <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a></p>
+          <p>Email: <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a></p>
         </div>
         <p>This notice reflects our current understanding of applicable obligations. It does not constitute legal advice and should be reviewed by a qualified legal professional before commercial launch or material changes to data processing activities.</p>
       </Section>

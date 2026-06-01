@@ -38,7 +38,7 @@ export function LegalLayout({ title, lastUpdated, children }: LegalLayoutProps) 
             <Link href="/terms" className="text-sm hover:underline" style={{ color: '#8B5CF6' }}>Terms &amp; Conditions</Link>
             <Link href="/privacy" className="text-sm hover:underline" style={{ color: '#8B5CF6' }}>Privacy Policy</Link>
             <Link href="/data-compliance" className="text-sm hover:underline" style={{ color: '#8B5CF6' }}>Data Compliance</Link>
-            <a href="mailto:media@jobsagent007.com" className="text-sm hover:underline" style={{ color: '#8B5CF6' }}>Contact</a>
+            <a href="mailto:media@jobsagent247.com" className="text-sm hover:underline" style={{ color: '#8B5CF6' }}>Contact</a>
             <Link href="/" className="text-sm ml-auto" style={{ color: '#64748B' }}>← Back to home</Link>
           </div>
         </div>
@@ -51,7 +51,7 @@ export function LegalLayout({ title, lastUpdated, children }: LegalLayoutProps) 
             <div className="w-6 h-6 rounded-md flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}>
               <Zap className="w-3 h-3 text-white" />
             </div>
-            JobAgent007
+            JobAgent247
           </div>
           <p className="text-xs" style={{ color: '#64748B' }}>
             © {new Date().getFullYear()} Nexgen Tech Labs. Registered in the United Kingdom. All rights reserved.

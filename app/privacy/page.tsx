@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from 'next'
 import { LegalLayout } from '@/components/layout/LegalLayout'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — JobAgent007',
-  description: 'How JobAgent007 collects, uses, and protects your personal data.',
+  title: 'Privacy Policy — JobAgent247',
+  description: 'How JobAgent247 collects, uses, and protects your personal data.',
 }
 
 const LAST_UPDATED = '28 May 2026'
@@ -13,8 +14,8 @@ export default function PrivacyPage() {
     <LegalLayout title="Privacy Policy" lastUpdated={LAST_UPDATED}>
 
       <Section title="1. Who We Are">
-        <p>JobAgent007 is operated by <strong>Nexgen Tech Labs</strong>, registered and based in the <strong>United Kingdom</strong>. We are the data controller for personal data processed through the JobAgent007 platform.</p>
-        <p>Contact for all data, privacy, and compliance queries: <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a></p>
+        <p>JobAgent247 is operated by <strong>Nexgen Tech Labs</strong>, registered and based in the <strong>United Kingdom</strong>. We are the data controller for personal data processed through the JobAgent247 platform.</p>
+        <p>Contact for all data, privacy, and compliance queries: <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a></p>
       </Section>
 
       <Section title="2. What Personal Data We Collect">
@@ -100,7 +101,7 @@ export default function PrivacyPage() {
           <li><strong>Withdrawal of consent:</strong> Withdraw consent at any time where processing is based on consent.</li>
           <li><strong>Complaint:</strong> Lodge a complaint with the relevant supervisory authority (in the UK: the Information Commissioner's Office at ico.org.uk).</li>
         </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a>.</p>
+        <p>To exercise any of these rights, contact us at <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a>.</p>
       </Section>
 
       <Section title="9. Cookies and Tracking">
@@ -108,11 +109,11 @@ export default function PrivacyPage() {
       </Section>
 
       <Section title="10. Security">
-        <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or disclosure. No system is completely secure, and we cannot guarantee absolute security. If you become aware of a security vulnerability, please report it responsibly to <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a>.</p>
+        <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or disclosure. No system is completely secure, and we cannot guarantee absolute security. If you become aware of a security vulnerability, please report it responsibly to <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a>.</p>
       </Section>
 
       <Section title="11. Children's Privacy">
-        <p>JobAgent007 is not intended for use by persons under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has provided us with personal data, please contact us and we will take steps to delete it.</p>
+        <p>JobAgent247 is not intended for use by persons under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has provided us with personal data, please contact us and we will take steps to delete it.</p>
       </Section>
 
       <Section title="12. Changes to This Policy">
@@ -120,7 +121,7 @@ export default function PrivacyPage() {
       </Section>
 
       <Section title="13. Contact">
-        <p>For any privacy, data, or compliance queries, contact us at: <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a></p>
+        <p>For any privacy, data, or compliance queries, contact us at: <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a></p>
       </Section>
 
     </LegalLayout>

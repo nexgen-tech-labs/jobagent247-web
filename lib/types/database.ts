@@ -16,6 +16,7 @@ export interface User {
   priority: string | null
   keywords: string[] | null
   onboarding_complete: boolean
+  plan: 'free' | 'pro' | 'accelerator'
   created_at: string
 }
 
@@ -80,10 +81,17 @@ export interface Document {
 }
 
 export interface InterviewQuestion {
+  id: string
   question: string
-  answer_framework: string
-  user_answer?: string
-  category?: string
+  category: 'Technical' | 'Behavioural' | 'SRE' | 'Leadership' | 'Cloud' | 'Situational'
+  difficulty: 'easy' | 'medium' | 'hard'
+  starFramework: {
+    situation: string
+    task: string
+    action: string
+    result: string
+  }
+  keywordsToUse: string[]
 }
 
 export interface InterviewSession {
@@ -110,6 +118,27 @@ export interface ScrapeJob {
   error: string | null
   created_at: string
   completed_at: string | null
+}
+
+export interface BulletImprovement {
+  original: string
+  improved: string
+  reason: string
+}
+
+export interface CVAnalysisResult {
+  score: number
+  missingKeywords: string[]
+  improvedBullets: BulletImprovement[]
+  summary: string
+}
+
+export interface MatchResult {
+  score: number
+  strengths: string[]
+  gaps: string[]
+  suggestedChanges: string[]
+  verdict: string
 }
 
 type TableDef<Row, Insert, Update> = {

@@ -41,3 +41,15 @@ export async function updateUser(
   if (error) throw error
   return data as User
 }
+
+export async function getUserPlan(
+  db: Client,
+  userId: string
+): Promise<'free' | 'pro' | 'accelerator'> {
+  const { data } = await db
+    .from('users')
+    .select('plan')
+    .eq('id', userId)
+    .single()
+  return (data?.plan ?? 'free') as 'free' | 'pro' | 'accelerator'
+}

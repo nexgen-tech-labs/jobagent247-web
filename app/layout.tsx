@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "JobAgent007 — AI-Powered Job Search",
+  title: "JobAgent247 — AI-Powered Job Search",
   description:
     "Your personal AI job-search agent. Get tailored CVs, smart job matches, interview prep, and application tracking — all in one intelligent platform.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "career tools",
   ],
   openGraph: {
-    title: "JobAgent007 — AI-Powered Job Search",
+    title: "JobAgent247 — AI-Powered Job Search",
     description:
       "Get more interviews with your personal AI job-search agents.",
     type: "website",

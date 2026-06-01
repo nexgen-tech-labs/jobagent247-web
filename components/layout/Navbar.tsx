@@ -32,7 +32,7 @@ export function Navbar() {
             >
               <Zap className="w-4 h-4 text-white" />
             </div>
-            JobAgent007
+            JobAgent247
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

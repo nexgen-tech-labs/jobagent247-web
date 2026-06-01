@@ -103,7 +103,7 @@ export default function OnboardingPage() {
         <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}>
           <Zap className="w-4 h-4 text-white" />
         </div>
-        JobAgent007
+        JobAgent247
       </div>
 
       {/* Progress bar */}

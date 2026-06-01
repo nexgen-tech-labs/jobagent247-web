@@ -7,6 +7,7 @@ interface SecondaryButtonProps {
   href?: string
   className?: string
   size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
 }
 
 const sizeClasses = {
@@ -15,7 +16,7 @@ const sizeClasses = {
   lg: 'px-8 py-4 text-lg',
 }
 
-export function SecondaryButton({ children, onClick, href, className, size = 'md' }: SecondaryButtonProps) {
+export function SecondaryButton({ children, onClick, href, className, size = 'md', disabled }: SecondaryButtonProps) {
   const classes = cn('btn-secondary', sizeClasses[size], className)
 
   if (href) {
@@ -27,7 +28,7 @@ export function SecondaryButton({ children, onClick, href, className, size = 'md
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes}>
+    <button type="button" onClick={onClick} className={classes} disabled={disabled}>
       {children}
     </button>
   )

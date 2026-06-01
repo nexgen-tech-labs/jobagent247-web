@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from 'next'
 import { LegalLayout } from '@/components/layout/LegalLayout'
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions — JobAgent007',
-  description: 'Terms and conditions governing your use of the JobAgent007 platform, operated by Nexgen Tech Labs.',
+  title: 'Terms and Conditions — JobAgent247',
+  description: 'Terms and conditions governing your use of the JobAgent247 platform, operated by Nexgen Tech Labs.',
 }
 
 const LAST_UPDATED = '28 May 2026'
@@ -13,23 +14,23 @@ export default function TermsPage() {
     <LegalLayout title="Terms and Conditions" lastUpdated={LAST_UPDATED}>
 
       <Section title="1. Introduction and Acceptance">
-        <p>Welcome to JobAgent007. By accessing or using the JobAgent007 platform, website, or any associated services (collectively, the "Service"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any part of these Terms, you must not use the Service.</p>
-        <p>These Terms form a legally binding agreement between you ("User", "you") and Nexgen Tech Labs ("we", "us", "our"), the company that builds and operates JobAgent007.</p>
+        <p>Welcome to JobAgent247. By accessing or using the JobAgent247 platform, website, or any associated services (collectively, the "Service"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree with any part of these Terms, you must not use the Service.</p>
+        <p>These Terms form a legally binding agreement between you ("User", "you") and Nexgen Tech Labs ("we", "us", "our"), the company that builds and operates JobAgent247.</p>
       </Section>
 
-      <Section title="2. About JobAgent007">
-        <p>JobAgent007 is a software-as-a-service (SaaS) platform that provides AI-assisted tools to support job-search workflows, including CV improvement, job discovery, application support, cover letter generation, application tracking, and interview preparation. JobAgent007 is a software product built and managed by <strong>Nexgen Tech Labs</strong>, registered and operated from the <strong>United Kingdom</strong>.</p>
+      <Section title="2. About JobAgent247">
+        <p>JobAgent247 is a software-as-a-service (SaaS) platform that provides AI-assisted tools to support job-search workflows, including CV improvement, job discovery, application support, cover letter generation, application tracking, and interview preparation. JobAgent247 is a software product built and managed by <strong>Nexgen Tech Labs</strong>, registered and operated from the <strong>United Kingdom</strong>.</p>
       </Section>
 
       <Section title="3. No Job Guarantee">
         <Disclaimer>
-          JobAgent007 provides software tools and AI-assisted workflows to support job-search activity. We do not guarantee that using the platform will result in interviews, job offers, employment, recruiter responses, salary increases, visa sponsorship, or any specific career outcome. Hiring decisions are made solely by employers, recruiters, hiring managers, or other third parties entirely outside our control.
+          JobAgent247 provides software tools and AI-assisted workflows to support job-search activity. We do not guarantee that using the platform will result in interviews, job offers, employment, recruiter responses, salary increases, visa sponsorship, or any specific career outcome. Hiring decisions are made solely by employers, recruiters, hiring managers, or other third parties entirely outside our control.
         </Disclaimer>
       </Section>
 
       <Section title="4. No Recruiter or Hiring Manager Relationship">
         <Disclaimer>
-          JobAgent007 is not affiliated with, endorsed by, or formally connected to recruiters, hiring managers, employers, job boards, or staffing agencies unless explicitly stated in writing. We do not act on behalf of any employer, recruiter, hiring manager, or recruitment agency. JobAgent007 is not an employer, recruiter, recruitment agency, staffing agency, immigration adviser, legal adviser, or hiring representative.
+          JobAgent247 is not affiliated with, endorsed by, or formally connected to recruiters, hiring managers, employers, job boards, or staffing agencies unless explicitly stated in writing. We do not act on behalf of any employer, recruiter, hiring manager, or recruitment agency. JobAgent247 is not an employer, recruiter, recruitment agency, staffing agency, immigration adviser, legal adviser, or hiring representative.
         </Disclaimer>
       </Section>
 
@@ -59,7 +60,7 @@ export default function TermsPage() {
       </Section>
 
       <Section title="7. AI-Assisted Outputs and User Responsibility">
-        <p>JobAgent007 uses artificial intelligence to generate or enhance content such as CVs, cover letters, recruiter messages, job-match scores, interview questions, and profile suggestions. You acknowledge that:</p>
+        <p>JobAgent247 uses artificial intelligence to generate or enhance content such as CVs, cover letters, recruiter messages, job-match scores, interview questions, and profile suggestions. You acknowledge that:</p>
         <ul>
           <li>AI-generated outputs may contain errors, inaccuracies, or content that does not accurately reflect your skills, experience, or circumstances.</li>
           <li>You must review, verify, and approve all AI-generated content before using or submitting it.</li>
@@ -73,12 +74,12 @@ export default function TermsPage() {
       </Section>
 
       <Section title="9. Subscription, Billing, and Cancellation">
-        <p>JobAgent007 offers free and paid subscription tiers. By subscribing to a paid plan, you authorise us to charge the applicable fees via our payment processor. Pricing, billing cycles, and feature entitlements are displayed on the pricing page and may be updated with reasonable notice.</p>
+        <p>JobAgent247 offers free and paid subscription tiers. By subscribing to a paid plan, you authorise us to charge the applicable fees via our payment processor. Pricing, billing cycles, and feature entitlements are displayed on the pricing page and may be updated with reasonable notice.</p>
         <p>You may cancel your subscription at any time. Cancellation takes effect at the end of your current billing period. We do not provide refunds for partially used billing periods except where required by applicable law. We reserve the right to modify pricing with reasonable advance notice to active subscribers.</p>
       </Section>
 
       <Section title="10. Intellectual Property">
-        <p>All intellectual property in the JobAgent007 platform, including software, design, trademarks, logos, and brand elements, is owned by or licensed to Nexgen Tech Labs. You are granted a limited, non-exclusive, non-transferable licence to use the Service for its intended purpose during your active subscription.</p>
+        <p>All intellectual property in the JobAgent247 platform, including software, design, trademarks, logos, and brand elements, is owned by or licensed to Nexgen Tech Labs. You are granted a limited, non-exclusive, non-transferable licence to use the Service for its intended purpose during your active subscription.</p>
         <p>You retain ownership of any content you upload to the platform (such as your CV or profile information). By uploading content, you grant Nexgen Tech Labs a limited licence to process, store, and use that content solely to deliver the Service to you.</p>
       </Section>
 
@@ -104,7 +105,7 @@ export default function TermsPage() {
       </Section>
 
       <Section title="16. Contact">
-        <p>For questions about these Terms, please contact us at: <a href="mailto:media@jobsagent007.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent007.com</a></p>
+        <p>For questions about these Terms, please contact us at: <a href="mailto:media@jobsagent247.com" className="underline" style={{ color: '#8B5CF6' }}>media@jobsagent247.com</a></p>
       </Section>
 
     </LegalLayout>

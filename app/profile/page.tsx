@@ -33,6 +33,7 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [tagInput, setTagInput] = useState('')
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const supabase = getBrowserClient()
@@ -40,8 +41,15 @@ export default function ProfilePage() {
       if (res.data.user) setUserId(res.data.user.id)
     })
     fetch('/api/profile')
-      .then(r => r.json())
+      .then(async r => {
+        if (!r.ok) {
+          const body = await r.json().catch(() => ({ error: `HTTP ${r.status}` }))
+          throw new Error(body.error ?? `HTTP ${r.status}`)
+        }
+        return r.json()
+      })
       .then((data: User) => { setProfile(data); setLoading(false) })
+      .catch((err: Error) => { setError(err.message); setLoading(false) })
   }, [])
 
   const save = async (updates: Partial<User>) => {
@@ -69,11 +77,23 @@ export default function ProfilePage() {
     save({ [field]: current.filter(t => t !== tag) })
   }
 
-  if (loading || !profile) {
+  if (loading) {
     return (
       <DashboardLayout title="My Profile">
         <div className="flex items-center justify-center h-64">
           <Loader2 className="w-6 h-6 animate-spin" style={{ color: '#8B5CF6' }} />
+        </div>
+      </DashboardLayout>
+    )
+  }
+
+  if (error || !profile) {
+    return (
+      <DashboardLayout title="My Profile">
+        <div className="flex items-center justify-center h-64">
+          <p className="text-sm px-4 py-3 rounded-xl" style={{ background: 'rgba(239,68,68,0.1)', color: '#EF4444', border: '1px solid rgba(239,68,68,0.2)' }}>
+            {error ?? 'Failed to load profile'}
+          </p>
         </div>
       </DashboardLayout>
     )

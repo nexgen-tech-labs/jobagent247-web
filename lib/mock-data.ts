@@ -302,6 +302,7 @@ export const mockInterviewQuestions = [
     question: "Walk me through how you would design a Kubernetes-based deployment pipeline for a microservices application in a regulated financial environment.",
     difficulty: "hard",
     category: "Technical",
+    keywordsToUse: [],
     starFramework: {
       situation: "Describe a regulated environment you've worked in (e.g. banking, healthcare)",
       task: "The requirement to deploy microservices safely with full audit trails and rollback capability",
@@ -314,6 +315,7 @@ export const mockInterviewQuestions = [
     question: "How do you approach defining SLOs and SLIs for a high-traffic API service?",
     difficulty: "medium",
     category: "SRE",
+    keywordsToUse: [],
     starFramework: {
       situation: "A payments API with 99.95% availability requirement and 200ms p99 latency target",
       task: "Define measurable SLOs that the team could act on and that aligned with user experience",
@@ -326,6 +328,7 @@ export const mockInterviewQuestions = [
     question: "Describe your experience with infrastructure cost optimisation on cloud platforms.",
     difficulty: "medium",
     category: "Cloud",
+    keywordsToUse: [],
     starFramework: {
       situation: "AWS bill growing 40% month-over-month with a startup scaling rapidly",
       task: "Reduce cloud spend without impacting performance or reliability",
@@ -337,7 +340,8 @@ export const mockInterviewQuestions = [
     id: "q4",
     question: "How have you handled a major production incident? Walk me through your incident response process.",
     difficulty: "hard",
-    category: "Incident Management",
+    category: "SRE",
+    keywordsToUse: [],
     starFramework: {
       situation: "A database failover caused 45 minutes of downtime for a B2C payments platform",
       task: "Restore service, communicate clearly, and prevent recurrence",
@@ -350,6 +354,7 @@ export const mockInterviewQuestions = [
     question: "What is your approach to mentoring junior engineers and building DevOps culture in an organisation?",
     difficulty: "easy",
     category: "Leadership",
+    keywordsToUse: [],
     starFramework: {
       situation: "A team of 3 junior engineers with limited cloud experience joining a mature DevOps organisation",
       task: "Upskill the team and embed DevOps practices without slowing delivery",

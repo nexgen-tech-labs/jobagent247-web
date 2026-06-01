@@ -1,12 +1,18 @@
 {
-  "name": "web",
+  "name": "jobagent247",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "bash scripts/start-web.sh",
+    "dev:api": "bash scripts/start-api.sh",
+    "dev:all": "bash scripts/dev.sh",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "type-check": "tsc --noEmit",
+    "check:env": "node scripts/check-env.mjs",
+    "check:env:ci": "node scripts/check-env.mjs --ci",
+    "check": "node scripts/check-env.mjs && tsc --noEmit && eslint"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",

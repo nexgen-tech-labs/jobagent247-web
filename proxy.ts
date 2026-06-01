@@ -1,3 +1,5 @@
+import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
@@ -11,7 +13,24 @@ const protectedRoutes = [
   '/settings',
 ]
 
+let _ipRatelimit: Ratelimit | null = null
+function getIpRatelimit() {
+  if (!_ipRatelimit) {
+    const redis = new Redis({ url: process.env.UPSTASH_REDIS_REST_URL!, token: process.env.UPSTASH_REDIS_REST_TOKEN! })
+    _ipRatelimit = new Ratelimit({ redis, limiter: Ratelimit.fixedWindow(60, '1 m'), prefix: 'ip' })
+  }
+  return _ipRatelimit
+}
+
 export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname.startsWith('/api/')) {
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? 'unknown'
+    const { success } = await getIpRatelimit().limit(ip)
+    if (!success) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+    }
+  }
+
   let response = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -70,6 +89,6 @@ export async function proxy(request: NextRequest) {
   return response
 }
 
-export const config = {
+export const proxyConfig = {
   matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
 }

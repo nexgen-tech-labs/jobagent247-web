@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import type { JobType, UserJobWithJob, ApplicationStatus } from '../types/database'
+import type { Job, JobType, UserJobWithJob, ApplicationStatus } from '../types/database'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Client = SupabaseClient<any>
@@ -98,4 +98,29 @@ export async function getUserJobsByStatus(
     .order('created_at', { ascending: false })
   if (error) throw error
   return data as UserJobWithJob[]
+}
+
+export async function getJobById(db: Client, jobId: string): Promise<Job | null> {
+  const { data, error } = await db
+    .from('jobs')
+    .select('*')
+    .eq('id', jobId)
+    .single()
+  if (error && error.code !== 'PGRST116') throw error
+  return data as Job | null
+}
+
+export async function upsertUserJobScore(
+  db: Client,
+  userId: string,
+  jobId: string,
+  matchScore: number
+): Promise<void> {
+  const { error } = await db
+    .from('user_jobs')
+    .upsert(
+      { user_id: userId, job_id: jobId, match_score: matchScore, status: 'saved' },
+      { onConflict: 'user_id,job_id' }
+    )
+  if (error) throw error
 }

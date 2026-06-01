@@ -64,7 +64,7 @@ function HeroSection() {
                 <div className="w-3 h-3 rounded-full" style={{ background: '#EF4444' }} />
                 <div className="w-3 h-3 rounded-full" style={{ background: '#F59E0B' }} />
                 <div className="w-3 h-3 rounded-full" style={{ background: '#22C55E' }} />
-                <span className="ml-2 text-xs" style={{ color: '#64748B' }}>jobagent007 · dashboard</span>
+                <span className="ml-2 text-xs" style={{ color: '#64748B' }}>jobagent247 · dashboard</span>
               </div>
               <div className="grid grid-cols-3 gap-3 mb-4">
                 {[{ label: 'Profile Strength', value: '82%', color: '#8B5CF6' }, { label: 'CV Readiness', value: '91%', color: '#22C55E' }, { label: 'Job Match', value: '76%', color: '#06B6D4' }].map((m) => (
@@ -196,11 +196,11 @@ function AgentWorkflow() {
     <section id="workflow" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader badge="AI Agents" heading="A job search powered by specialised AI agents" subheading="Each agent handles a specific part of your job search, passing context to the next step so your applications stay consistent." centered />
-        <div className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-stretch">
           {agents.map((agent, i) => (
-            <motion.div key={agent.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex flex-col items-center text-center">
-              <div className="glass-card p-5 w-full">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold mb-3 mx-auto" style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)', color: 'white' }}>{i + 1}</div>
+            <motion.div key={agent.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex flex-col items-center text-center h-full">
+              <div className="glass-card p-5 w-full h-full flex flex-col items-center">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold mb-3 mx-auto shrink-0" style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)', color: 'white' }}>{i + 1}</div>
                 <h3 className="font-heading font-semibold text-sm text-white mb-2">{agent.title}</h3>
                 <p className="text-xs leading-relaxed" style={{ color: '#94A3B8' }}>{agent.desc}</p>
               </div>
@@ -266,7 +266,7 @@ function DashboardPreview() {
             <div className="w-3 h-3 rounded-full" style={{ background: '#EF4444' }} />
             <div className="w-3 h-3 rounded-full" style={{ background: '#F59E0B' }} />
             <div className="w-3 h-3 rounded-full" style={{ background: '#22C55E' }} />
-            <span className="ml-3 text-xs" style={{ color: '#64748B' }}>jobagent007.app/dashboard</span>
+            <span className="ml-3 text-xs" style={{ color: '#64748B' }}>jobagent247.app/dashboard</span>
           </div>
           <div className="flex">
             <div className="hidden md:block w-48 shrink-0 p-4 border-r space-y-1" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
@@ -336,7 +336,7 @@ function ComparisonTable() {
   const columns = [
     { label: 'Basic CV Builder', values: [true, false, false, false, false, false, false, false, false, false] },
     { label: 'Generic Chatbot', values: [true, true, false, true, true, false, false, false, false, false] },
-    { label: 'JobAgent007', values: [true, true, true, true, true, true, true, true, true, true], highlight: true },
+    { label: 'JobAgent247', values: [true, true, true, true, true, true, true, true, true, true], highlight: true },
   ]
   return (
     <section className="py-24">
@@ -389,7 +389,7 @@ function Testimonials() {
               <div className="flex items-center gap-1 mb-4">
                 {Array.from({ length: t.stars }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" style={{ color: '#F59E0B' }} />)}
               </div>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: '#CBD5E1' }}>"{t.quote}"</p>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: '#CBD5E1' }}>{`"${t.quote}"`}</p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold" style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)', color: 'white' }}>{t.initials}</div>
                 <div>
@@ -511,7 +511,7 @@ function Footer() {
             <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}>
               <Zap className="w-3.5 h-3.5 text-white" />
             </div>
-            JobAgent007
+            JobAgent247
           </div>
           <div className="flex flex-wrap justify-center gap-6">
             {['Product', 'How it Works', 'Features', 'Pricing', 'FAQ'].map((link) => (
@@ -525,7 +525,7 @@ function Footer() {
           <Link href="/terms" className="text-xs hover:underline" style={{ color: '#64748B' }}>Terms &amp; Conditions</Link>
           <Link href="/privacy" className="text-xs hover:underline" style={{ color: '#64748B' }}>Privacy Policy</Link>
           <Link href="/data-compliance" className="text-xs hover:underline" style={{ color: '#64748B' }}>Data Compliance</Link>
-          <a href="mailto:media@jobsagent007.com" className="text-xs hover:underline" style={{ color: '#64748B' }}>Contact</a>
+          <a href="mailto:media@jobsagent247.com" className="text-xs hover:underline" style={{ color: '#64748B' }}>Contact</a>
           <span className="text-xs" style={{ color: '#334155' }}>Registered in the United Kingdom</span>
         </div>
       </div>

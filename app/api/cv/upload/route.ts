@@ -26,19 +26,19 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Only .docx and .pdf files are supported' }, { status: 400 })
   }
 
-  // Download file from Storage using service role (bypasses RLS)
-  const admin = createAdminClient()
-  const { data: fileData, error: downloadError } = await admin.storage
-    .from('cvs')
-    .download(body.storagePath)
-
-  if (downloadError || !fileData) {
-    return NextResponse.json({ error: 'Failed to read uploaded file' }, { status: 500 })
-  }
-
-  // Extract text
-  let rawText = ''
   try {
+    // Download file from Storage using service role (bypasses RLS)
+    const admin = createAdminClient()
+    const { data: fileData, error: downloadError } = await admin.storage
+      .from('cvs')
+      .download(body.storagePath)
+
+    if (downloadError || !fileData) {
+      return NextResponse.json({ error: 'Failed to read uploaded file' }, { status: 500 })
+    }
+
+    // Extract text
+    let rawText = ''
     const buffer = Buffer.from(await fileData.arrayBuffer())
 
     if (ext === 'docx') {
@@ -52,30 +52,31 @@ export async function POST(request: NextRequest) {
       const result = await pdfParse(buffer)
       rawText = result.text.trim()
     }
-  } catch {
-    return NextResponse.json({ error: 'Failed to extract text from file' }, { status: 422 })
+
+    // Determine if this is the user's first CV
+    const existing = await getCVsByUser(supabase, user.id)
+    const isPrimary = existing.length === 0
+
+    const fileUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/cvs/${body.storagePath}`
+
+    const cv = await insertCV(supabase, {
+      user_id: user.id,
+      file_name: body.fileName,
+      file_url: fileUrl,
+      raw_text: rawText,
+      ats_score: null,
+      version_label: body.versionLabel ?? null,
+      is_primary: isPrimary,
+    })
+
+    return NextResponse.json({
+      cvId: cv.id,
+      rawText,
+      preview: rawText.slice(0, 300),
+      isPrimary,
+    })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Internal server error'
+    return NextResponse.json({ error: message }, { status: 500 })
   }
-
-  // Determine if this is the user's first CV
-  const existing = await getCVsByUser(supabase, user.id)
-  const isPrimary = existing.length === 0
-
-  const fileUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/cvs/${body.storagePath}`
-
-  const cv = await insertCV(supabase, {
-    user_id: user.id,
-    file_name: body.fileName,
-    file_url: fileUrl,
-    raw_text: rawText,
-    ats_score: null,
-    version_label: body.versionLabel ?? null,
-    is_primary: isPrimary,
-  })
-
-  return NextResponse.json({
-    cvId: cv.id,
-    rawText,
-    preview: rawText.slice(0, 300),
-    isPrimary,
-  })
 }

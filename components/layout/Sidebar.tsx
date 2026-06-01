@@ -36,7 +36,7 @@ export function Sidebar() {
             style={{ background: 'linear-gradient(135deg, #8B5CF6, #06B6D4)' }}>
             <Zap className="w-4 h-4 text-white" />
           </div>
-          JobAgent007
+          JobAgent247
         </Link>
       </div>
 
